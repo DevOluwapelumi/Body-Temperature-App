@@ -14,3 +14,21 @@ Set personalized reminders to prompt you to log your temperature regularly. The 
 
 Data Export:
 Export your temperature data for analysis or sharing with healthcare professionals. The app supports export features to CSV format, facilitating seamless integration with other tools.
+
+Technologies Used:
+Frontend:
+
+Built using React.js for a responsive and dynamic user interface.
+Styled with CSS for a clean and modern design.
+State Management:
+
+Leveraged React Context API for efficient state management.
+Charting Library:
+
+Integrated Chart.js to create interactive and visually appealing temperature charts.
+Storage:
+
+Utilized local storage for persistent data storage on the client-side.
+Responsive Design:
+
+Ensured a mobile-friendly layout using responsive design principles.
