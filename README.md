@@ -19,17 +19,20 @@ Storage: Utilized local storage for persistent data storage on the client-side.
 Responsive Design: Ensured a mobile-friendly layout using responsive design principles.
 
 # How to Use:
-Clone the repository to your local machine.
+## Clone the repository to your local machine.
 ### git clone https://github.com/yourusername/body-temperature-app.git
 
-Navigate to the project directory.
+## Navigate to the project directory.
 ### cd body-temperature-app
 
-Install dependencies.
+## Install dependencies.
 ### npm install
 
-Start the app.
+## Start the app.
 ### npm start
 
-# Contributions and Issues:
+## Access the app in your browser at:
+### http://localhost:3000.
+
+## Contributions and Issues:
 Contributions are welcome! If you encounter any issues or have ideas for improvements, please open an issue on GitHub. Feel free to fork the repository and submit pull requests.
