@@ -17,3 +17,16 @@ State Management: Leveraged React Context API for efficient state management.
 Charting Library: Integrated Chart.js to create interactive and visually appealing temperature charts.
 Storage: Utilized local storage for persistent data storage on the client-side.
 Responsive Design: Ensured a mobile-friendly layout using responsive design principles.
+
+# How to Use:
+Clone the repository to your local machine.
+### git clone https://github.com/yourusername/body-temperature-app.git
+
+Navigate to the project directory.
+### cd body-temperature-app
+
+Install dependencies.
+### npm install
+
+Start the app.
+### npm start
