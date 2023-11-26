@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Measurement App</title>
+  <style>
+    #video {
+      width: 100%;
+      max-width: 640px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Body Temperature Measurement App</h1>
+  <video id="video" autoplay></video>
+  <button id="startButton">Start Measurement</button>
+  <p id="temperatureResult"></p>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
+  <script src="app.js"></script>
+</body>
+</html>
