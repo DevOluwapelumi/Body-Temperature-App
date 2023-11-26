@@ -30,3 +30,6 @@ Install dependencies.
 
 Start the app.
 ### npm start
+
+# Contributions and Issues:
+Contributions are welcome! If you encounter any issues or have ideas for improvements, please open an issue on GitHub. Feel free to fork the repository and submit pull requests.
