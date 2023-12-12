@@ -1,49 +1,53 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const video = document.getElementById('video');
-    const startButton = document.getElementById('startButton');
-    const temperatureResult = document.getElementById('temperatureResult');
-  
-    let faceModel;
-  
-    try {
+  const video = document.getElementById('video');
+  const startButton = document.getElementById('startButton');
+  const temperatureResult = document.getElementById('temperatureResult');
+
+  let faceModel;
+
+  try {
       // Load the Blazeface model for face detection
       faceModel = await blazeface.load();
-    } catch (error) {
+  } catch (error) {
       console.error('Error loading face detection model:', error.message);
       alert('Failed to load the face detection model. Please check the console for details.');
       return;
-    }
-  
-    async function startMeasurement() {
+  }
+
+  async function startMeasurement() {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        video.srcObject = stream;
-  
-        const temperature = await measureTemperature();
-        displayTemperatureResult(temperature);
+          const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+          video.srcObject = stream;
+
+          // Wait for the 'loadedmetadata' event before attempting to estimate faces
+          await new Promise(resolve => video.addEventListener('loadedmetadata', resolve));
+
+          const temperature = await measureTemperature();
+          displayTemperatureResult(temperature);
       } catch (error) {
-        console.error('Error accessing camera:', error.message);
-        alert('Error accessing camera. Please check the console for details.');
+          console.error('Error accessing camera or measuring temperature:', error.message);
+          alert('Error accessing camera or measuring temperature. Please check the console for details.');
       }
-    }
-  
-    async function measureTemperature() {
+  }
+
+  async function measureTemperature() {
       try {
-        // Use Blazeface for face detection
-        const facePredictions = await faceModel.estimateFaces(video);
-  
-        if (!facePredictions || facePredictions.length === 0) {
-          throw new Error('Face not detected.');
-        }
-  
-        // Simulate a more realistic temperature estimation
-        const temperature = simulateTemperatureEstimation(facePredictions[0]);
-        return temperature;
+          // Use Blazeface for face detection
+          const facePredictions = await faceModel.estimateFaces(video);
+
+          if (!facePredictions || facePredictions.length === 0) {
+              throw new Error('Face not detected.');
+          }
+
+          // Simulate a more realistic temperature estimation
+          const temperature = simulateTemperatureEstimation(facePredictions[0]);
+          return temperature;
       } catch (error) {
-        console.error('Error measuring temperature:', error.message);
-        alert('Failed to measure temperature. Please check the console for details.');
+          console.error('Error measuring temperature:', error.message);
+          alert('Failed to measure temperature. Please check the console for details.');
+          throw error; // Rethrow the error so that it can be caught in the startMeasurement catch block
       }
-    }
+  }
   
     function simulateTemperatureEstimation(facePrediction) {
       // Simulate temperature estimation based on face prediction.
